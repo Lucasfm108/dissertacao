@@ -129,7 +129,7 @@ kable(a) %>%
 &nbsp;
 &nbsp;
 
-<center> ![](atitudinal.PNG) </center>
+<center> ![](estratégico.PNG) </center>
 
 ## Explicações distintas, predições iguais
 
@@ -174,7 +174,7 @@ kable(a) %>%
 &nbsp;
 &nbsp;
 
-**Hipótese**: Juízes punitivistas possuem uma maior probabilidade de proferirem uma sentença condenatória do que juízes garantistas
+**Hipótese**: Juízes punitivistas possuem uma maior probabilidade de proferirem uma sentença condenatória do que juízes garantistas. 
 
 
 # Mensurando as preferências políticas
