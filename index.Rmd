@@ -1,0 +1,615 @@
+---
+title: Condenados pela ideologia?
+subtitle: Uma análise das sentenças criminais do TJSP    
+author: Lucas Fernandes de Magalhães
+output: 
+  revealjs::revealjs_presentation:
+    css: styles.css
+    self_contained: false
+    reveal_plugins: ["zoom", "search"]
+    transition: slide
+    background_transition: slide
+    progress: true
+    slideNumber: true
+    reveal_options:
+      width: 100%
+      height: 100%
+---
+
+```{r include=FALSE}
+library(kableExtra)
+```
+
+# Introdução
+
+## Objetivo
+
+&nbsp;
+&nbsp;
+
+* Explicar porque os juízes decidem da forma como decidem.
+
+&nbsp;
+&nbsp;
+
+* Mais especificamente, explicar porque os juízes decidem de forma diversa casos semelhantes.
+
+## Duas situações, quatro decisões
+
+&nbsp;
+&nbsp;
+
+```{r echo=FALSE}
+a <- data.frame("Caso" = c("Acusado de tráfico. Segundo policiais, o acusado jogou uma sacola no chão contendo drogas às 18hrs. O réu negou e apresentou provas de que havia trabalhado como ajudante de pedreiro até às 17hrs.", "Acusada de tráfico. Segundo policiais, a ré jogou um embrulho no chão contendo drogas. A ré negou e disse que estava apenas no lugar 'errado, na hora errada'.", "Acusado de furto. Furtou cinco cuecas no valor de R$ 41,95.", "Acusado de furto. Furtou uma furadeira elétrica no valor de R$ 252,90"), "Decisão" = c("Condenação", "Absolvição", "Condenação", "Absolvição"))
+
+kable(a) %>%
+  kable_styling("striped", full_width = F) %>%
+  pack_rows("Situação 1", 1, 2) %>%
+  pack_rows("Situação 2", 3, 4)
+
+```
+
+
+## Justificativa em três níveis
+
+&nbsp;
+&nbsp;
+
+* Por que estudar o comportamento de juízes?
+
+&nbsp;
+&nbsp;
+
+* Por que estudar Juízes de 1º Grau?
+
+&nbsp;
+&nbsp;
+
+* Por que estudar sentenças criminais?
+
+# Explicando o comportamento judicial
+
+## Teorias
+
+&nbsp;
+&nbsp;
+
+* Teoria Legal?
+
+&nbsp;
+&nbsp;
+
+* Teoria Atitudinal
+
+&nbsp;
+&nbsp;
+
+* Teoria Estratégica
+
+## O que são preferências políticas
+
+&nbsp;
+&nbsp;
+
+<center> ![](graf1.PNG) </center>
+
+## Dimensão da política criminal: garantismo-punitivismo
+
+&nbsp;
+&nbsp;
+
+<center> ![](ideologia.PNG) </center>
+
+## Teoria Atitudinal
+
+&nbsp;
+&nbsp;
+
+<center> ![](atitudinal.PNG) </center>
+
+## Teoria Estratégica
+
+&nbsp;
+&nbsp;
+
+* **Objetivos**
+
+&nbsp;
+&nbsp;
+
+* **Antecipação**
+
+&nbsp;
+&nbsp;
+
+* **Contexto institucional**
+
+## Teoria Estratégica
+
+&nbsp;
+&nbsp;
+
+<center> ![](atitudinal.PNG) </center>
+
+## Explicações distintas, predições iguais
+
+&nbsp;
+&nbsp;
+
+```{r echo=FALSE}
+a <- data.frame("Teorias" = c("Atitudinal", "Atitudinal", "Estratégica", "Estratégica"), "Incentivos relevantes" = c("Sim", "Não", "Sim", "Não"),
+                "Comportamento Predito" = c("Sincero", "Sincero", "Sofisticado", "Sincero"), "Explicação" = c("Ativação das preferências políticas","Ativação das preferências políticas", "Maximização dos objetivos", "Ausência de incentivos relevantes"))
+
+kable(a) %>%
+  kable_styling("striped", full_width = F) %>%
+  collapse_rows(columns = 1, valign = "top")%>%
+  row_spec(c(2,4), bold = T, color = "white", background = "#D7261E")
+
+```
+
+## Explicando o comportamento dos juízes do TJSP
+
+&nbsp;
+&nbsp;
+
+**Teoria Atitudinal** - Os juízes decidem de acordo com suas preferências políticas. 
+&nbsp;
+&nbsp;
+
+**Teoria Estratégica** - Os juízes decidem de acordo com suas preferências políticas:
+
+* Julgamento Individual (Contexto colegiado)
+* Decisão não passível de revisão pelos demais Poderes (Contexto da separação entre os poderes)
+* Distribuição aleatória dos recursos (Contexto hierárquico)
+* Falta de homogeneidade nos Tribunais (Contexto Hierárquico)
+* Alta taxa de reversão não impede promoção na carreira (Contexto hierárquico) 
+
+## Modelo e hipótese
+
+&nbsp;
+&nbsp;
+
+<center> $$\underbrace{d_{ic}}_\text{Decisão do juiz i no caso c} = \alpha + \underbrace{\beta_1I_i}_\text{Ideologia do juiz i} + \underbrace{\epsilon}_\text{Erro normalmente distribuído}$$ </center>
+
+&nbsp;
+&nbsp;
+
+**Hipótese**: Juízes punitivistas possuem uma maior probabilidade de proferirem uma sentença condenatória do que juízes garantistas
+
+
+# Mensurando as preferências políticas
+
+
+## Duas estratégias
+
+&nbsp;
+&nbsp;
+
+A preferência política é uma variável latente, isto é, não é passível de ser mensurada diretamente, diferente da altura, sexo ou peso, por exemplo. Em razão disso, para medi-la necessitamos de alternativas indiretas como:
+
+&nbsp;
+&nbsp;
+
+* Proxy
+
+&nbsp;
+&nbsp;
+
+* Comportamento observado
+
+## Proxy
+
+&nbsp;
+&nbsp;
+
+<center> ![](proxy.PNG) </center>
+
+## Comportamento observado
+
+&nbsp;
+&nbsp;
+
+<center> ![](comportamento.PNG) </center>
+
+## Estratégia adotada
+
+&nbsp;
+&nbsp;
+
+
+Se a decisão judicial é afetada pela preferência polítia do juiz, isso significa que ele apenas decidiria pela absolvição se, e somente se, a média entre a absolvição e a condenação fosse maior do que seu ponto ideal. Inversamente, um juiz condenaria se, e somente se, a média entre a absolvição e a condenação fosse menor do que seu ponto ideal. 
+
+&nbsp;
+&nbsp;
+
+Para facilitar, a média entre a absolvição e a condenação será denominada “ponto de corte” do caso sob julgamento. Assim, um ponto ideal superior e outro inferior ao ponto de corte implica uma decisão condenatória e uma decisão absolutória, respectivamente.
+
+
+## Estratégia adotada
+
+&nbsp;
+&nbsp;
+
+<center> ![](estrategia1.PNG) </center>
+
+## Estratégia adotada
+
+&nbsp;
+&nbsp;
+
+<center> ![](estrategia2.PNG) </center>
+
+## Estratégia adotada
+
+&nbsp;
+&nbsp;
+
+<center> ![](estrategia3.PNG) </center>
+
+
+## Estratégia adotada
+
+&nbsp;
+&nbsp;
+
+**Solução**
+
+Calcular a proporção de sentenças condenatórias dos juízes em cada crime. Como os processos são distribuídos aleatoriamente, com um tamanho de amostra razoável, as diferenças de caso para caso se tornam irrelevantes. 
+
+&nbsp;
+&nbsp;
+
+Dessa maneira, a proporção de decisões de condenação serve como uma boa estimativa do ponto ideal do juiz na dimensão política garantismo-punitivismo: quanto maior a proporção de condenação, mais punitivista será o juiz; quanto menor a proporção de condenação, mais garantista ele será.
+
+## Estratégia adotada
+
+&nbsp;
+&nbsp;
+
+Juízes não julgam apenas um tipo de crime, e sim vários. Assim, podemos obter a proporção de decisões condenatórias de um juiz em uma série de crimes. Saber as proporções de decisões condenatórias dos juízes em vários crimes nos permite estimar os seus pontos ideais com ainda maior precisão.
+
+&nbsp;
+&nbsp;
+
+Podemos calcular os pontos ideais dos juízes a partir das proporções de condenações em uma série de crimes usando a fórmula da distância euclidiana:
+
+&nbsp;
+&nbsp;
+
+$$d(a,b)=\sqrt{\sum_{i=1}^{n}(a_i - b_i)^2} $$
+
+## Estratégia adotada
+
+&nbsp;
+&nbsp;
+
+O cálculo das as distâncias euclidianas entre os juízes retorna uma matriz de distância. 
+
+
+&nbsp;
+&nbsp;
+
+Como o nosso objetivo é obter um vetor (que será a variável preferência política) e não uma matriz, iremos selecionar o juiz mais garantista como sendo a referência (ou o âncora) e calcularemos todas as distâncias a partir dele.
+
+## Estratégia adotada - exemplo
+
+&nbsp;
+&nbsp;
+
+```{r, include=FALSE}
+library(tidyverse)
+```
+
+```{r, fig.align='center'}
+juizes <- data.frame("Furto" = c(30, 40, 60, 80), "Tráfico" = c(60, 72, 70, 90),
+                     nome=c("Juiz 1", "Juiz 2", "Juiz 3", "Juiz 4"))
+
+ggplot(juizes, aes(x=Furto, y=Tráfico))+
+  geom_text(aes(label=nome))+
+  coord_cartesian(xlim = c(0,100), ylim=c(0,100))+
+  theme_classic()
+```
+
+
+## Estratégia adotada - exemplo
+
+&nbsp;
+&nbsp;
+
+```{r, echo=TRUE}
+a <- dist(juizes[,1:2], method="euclidean")
+as.matrix(a)
+```
+
+&nbsp;
+&nbsp;
+
+Neste exemplo, o Juiz 1 seria o âncora. Logo, os pontos ideais dos juízes 1, 2 3 e 4 seriam, respectivamente: 0, 15, 31 e 58.
+
+
+# Testando a hipótese
+
+## Resultados
+
+&nbsp;
+&nbsp;
+
+O método proposto no capítulo anterior se baseia em dois parâmetros: 1) quantos (e quais) crimes serão utilizados para medir as preferências; 2) número mínimo de decisões proferidas por cada juiz em cada crime.
+Quanto maior forem ambos os parâmetros, mais preciso será o método
+
+&nbsp;
+&nbsp;
+
+No entanto, os Juízes de 1º Grau, como já dito, nem sempre julgam todos os tipos de crime, de modo que aumentar a quantidade de crimes utilizados para medir as preferências, reduz a amostra de Juízes. O mesmo ocorre se aumentarmos o número mínimo de decisões por Juiz em cada crime. Às vezes, um Juiz até chega a proferir decisões em vários crimes, mas nem sempre em grande quantidade.
+
+&nbsp;
+&nbsp;
+
+Ou seja, o método desenvolvido apresenta um trade-off entre precisão e tamanho da amostra. Quanto mais preciso (maior o número de crimes e do número mínimo de decisões proferidas por cada Juiz em cada crime), menor será a amostra disponível de Juízes, prejudicando o teste da hipótese.
+
+
+## Resultados
+
+&nbsp;
+&nbsp;
+
+A estratégia adotada foi a de testar a hipótese a partir de algumas combinações dos parâmetros, sempre mantendo uma amostra final superior a 30 Juízes, quais sejam: 1) Furto e Roubo com, no mínimo, 100 decisões por crime; 2) Furto, Roubo e Receptação com, no mínimo, 50 decisões por crime; 3) Furto, Roubo, Receptação e Tráfico com, no mínimo, 30 decisões por crime.
+
+&nbsp;
+&nbsp;
+
+Outras combinações podem ser testadas através do [Dashboard](https://lucasufmg.shinyapps.io/shiny/) ou fazendo o download da base de dados e dos códigos no endereço: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/TCYTEO
+
+
+## Resultados - 1ª Combinação
+
+```{r, include=FALSE}
+
+library(data.table)
+library(tidyverse)
+library(gdata)
+library(reshape2)
+
+base <- rio::import("base_codificada.rda")
+sp_idhm <- rio::import("sp_idhm.xlsx") #Parte da base do Atlas de Desenvolvimento Humano
+base_homicidio <- rio::import("base_homicidio.xlsx") #Parte dos dados do Atlas da Violencia (IPEA, 2019)
+
+#######################
+#  Preparando a base  #
+#######################
+
+#Transpor os dados de tx de homicidio e idhm
+base$Comarca <- base$Comarca %>% str_to_upper() #Transformar em Caixa Alta
+
+base[base$Comarca=="JUNDIAÍ / SP",]$Comarca <- "JUNDIAÍ" #Corrigir um nome
+
+base[base$Comarca=="IPAUÇU",]$Comarca <- "IPAUSSU" #Corrigir um nome
+
+base$idhm <- sp_idhm$IDHM[match(base$Comarca, sp_idhm$Município)] #Transpor os dados do IDHM para a base codificada
+
+base_homicidio$mun <- base_homicidio$mun %>% str_to_upper() #Transformar em caixa alta
+
+base$homicidio <- base_homicidio$tax_hom[match(base$Comarca,
+                                               base_homicidio$mun)] #Transpor os dados da tx de homicidio para a base codificada
+
+
+#########################
+#  Testando a hipotese  #
+#########################
+
+#### Parametros
+
+crimes <- list(c("furto", "roubo"), c("furto", "roubo", "receptação"),
+               c("furto", "roubo", "tráfico", "receptação")) #1º parametro: crimes usados para medir a preferencia
+
+n_decisoes <- c(100, 50, 30) #2º parametro: nº minimo de decisoes por juiz em cada crime
+
+###Loop para os tres modelos
+
+tabelas <- list() #objeto para armazenar os resultados dos modelos
+n_juizes <- data.frame() #objeto para armazenar o tamanho da amostra de juizes por modelo
+decisoes <- data.frame() #objeto para armazenar o nº de decisoes da base de teste
+
+
+
+for(i in 1:3){
+
+  ###Calcular as proporcoes de condenacoes dos juizes nos crimes
+  base_teste <- base %>% 
+    group_by(Magistrado, Assunto)%>% #Agrupa pelo nome do magistrado e pelo crime
+    summarise("prop_condena" = (sum(condena)/ #calcula a proporcao de condenacao e o total julgados por juiz/ano
+                                  (sum(condena)+ sum(absolve)))*100,
+              "Total" = sum(condena) +
+                sum(absolve)) %>%
+    filter(Assunto %in% crimes[[i]] & Total >= n_decisoes[i]) %>%  #Parametros do teste: Seleciona os crimes e o minimo de decisoes por crime
+    select(-Total) %>% 
+    spread(Assunto, "prop_condena") %>% 
+    drop_na()
+  
+  n_juizes <- rbind(n_juizes, nrow(base_teste)) #Total de juizes na amostra
+  
+  ###Calcular as distancias ideologica entre os juizes
+  a <- (base_teste[,2]+base_teste[,3])/2
+  
+  base_teste$media <- a[,1]
+  
+  base_teste <- base_teste %>%
+    arrange(media) %>% 
+    ungroup() %>% 
+    mutate(num = 1:n()) 
+  
+  
+  dist_mag <- base_teste %>% select(crimes[[i]]) %>% 
+    dist(method="euclidian") #Calcular a distância entre os juizes
+  
+  dist_mag <- melt(as.matrix(dist_mag), varnames = c("row", "col")) %>%
+    arrange(desc(value)) #Transforma a base
+  
+  if (dist_mag[1,1] > dist_mag[1,2]){
+    dist_mag <- dist_mag %>% filter(row==dist_mag[1,2])
+  } else {
+    dist_mag <- dist_mag %>% filter(row==dist_mag[1,1])
+  }  #COnsiderando o juiz com a menor media como ancora, logo, como 0
+  
+  #Transpondo a medida para os juizes
+  
+  base_teste$preferencia <- dist_mag$value[match(base_teste$num,
+                                                 dist_mag$col)] 
+  
+  #########################
+  #  Testando a hipotese  #
+  #########################
+  
+  #Tranpor a medida de preferencia para a base
+  base$preferencia <- base_teste$preferencia[match(base$Magistrado,
+                                                   base_teste$Magistrado)] 
+  
+  #Finalizar a base
+  base_teste <- base %>% drop_na(preferencia) %>%  #Retirar juizes fora da amostra
+                  filter(!Assunto %in% crimes[[i]]) #Retirar os crimes usados para a construcao da medida
+  
+  decisoes <- rbind(decisoes, nrow(base_teste)) #Total de decisoes na base de teste
+  
+  base_teste$entrancia <- as.factor(base_teste$entrancia) #transforma a variavel entrancia em fator
+  
+  base_teste$entrancia <- relevel(base_teste$entrancia, ref="final")
+  
+  #####Rodando o modelo
+  
+  reg <- glm(condena ~ preferencia + idhm + homicidio  + preferencia*entrancia +
+               as.factor(Assunto), data=base_teste, family="binomial")
+  
+  a <- summary(reg)
+  
+  a <- round(a$coefficients, 3)
+  
+  a <- a[c(1:6, (nrow(a)-1),nrow(a)),]
+  
+  
+  b <- round(exp(reg$coefficients), 3)
+  
+  b <- b[c(1:6, (length(b)-1),length(b))]
+  
+  d <- as.data.frame(round(exp(confint.default(reg)), 3))
+  
+  d <- paste(d$`2.5 %`, ",", d$`97.5 %`)
+  
+  d <- d[c(1:6, (length(d)-1),length(d))]
+  
+  a <- as.data.frame(cbind(a, b, d))
+  
+  a <- a %>% select(-`z value`) %>% 
+    rename("Razão de chances" = b, "Intervalo" = d) %>% 
+    select(1,2,4,5,3)
+  
+  rownames(a) <-  c("Intercepto", "Preferência", "IDHM",
+                    "Taxa de Homicídio",
+                    "Entrância inicial -Ref: Entrância Final",
+                    "Entrância intermediária -Ref: Entrância Final",
+                    "Preferência: Entrância Inicial",
+                    "Preferência: Entrância Intermediária")
+  
+  tabelas[[i]] <- a
+}
+```
+
+
+&nbsp;
+&nbsp;
+
+
+```{r, echo=F}
+kable(tabelas[[1]]) %>% 
+  kable_styling("striped", full_width = T)
+```
+
+
+## Resultados - 2ª Combinação
+
+&nbsp;
+&nbsp;
+
+```{r, echo=F}
+kable(tabelas[[2]]) %>% 
+  kable_styling("striped", full_width = T)
+```
+
+## Resultados - 3ª Combinação
+
+&nbsp;
+&nbsp;
+
+```{r, echo=F}
+kable(tabelas[[3]]) %>% 
+  kable_styling("striped", full_width =T)
+```
+
+
+## Resultados - Interpretação
+
+&nbsp;
+&nbsp;
+
+A razão de chances da preferência política ficou nos três modelos entre 1.023 a 1.042. Isso significa que a cada aumento de uma unidade no ponto ideal (em direção a uma ideologia mais punitivista) há um aumento entre 2.3% a 4.2% de chance de o juiz proferir uma sentença condenatória, ao invés de uma absolutória.
+
+&nbsp;
+&nbsp;
+
+Exemplificando, os Juízes que se situaram nos extremos ideológicos do último modelo (3ª Combinação) estavam a uma distância entre si de 71 unidades. A partir da razão de chances, podemos dizer que o Juiz mais punitivista tinha aproximadamente entre 2,63 a 4 vezes mais chances de proferir uma sentença condenatória do que o Juiz mais garantista da amostra.
+
+## Discussão
+
+&nbsp;
+&nbsp;
+
+**Sentencing**: Características dos juízes também importam
+
+&nbsp;
+&nbsp;
+
+**Comportamento Judicial**: Postulado da hierarquia?
+
+# Considerações finais
+
+## Conclusão
+
+&nbsp;
+&nbsp;
+
+Em termos simples, os achados empíricos desta dissertação indicam que juízes que possuem uma preferência política a favor de um recrudescimento das punições distribuídas pelo governo, aumento de penas e encarceramentos tenderão, mesmo diante das mesmas evidências, provas, leis, princípios e jurisprudências, a proferir sentenças condenatórias com maior frequência do que aqueles juízes que possuem preferências políticas opostas.
+
+&nbsp;
+&nbsp;
+
+Exemplo: casos narrados na introdução sobre Furto
+
+
+## Pesquisas Futuras
+
+&nbsp;
+&nbsp;
+
+1 -  Mensuração das preferências políticas em uma dimensão fundamental (liberal-conservador)
+
+&nbsp;
+&nbsp;
+
+2 - Construção de um desenho de pesquisa capaz de testar qual das duas teorias (Atitudinal e Estratégica) possui um maior poder explicativo
+
+&nbsp;
+&nbsp;
+
+3 - Estimação do efeito das preferências políticas sobre o tamanho das penas
+
+&nbsp;
+&nbsp;
+
+4 - Identificação dos vieses e heurísticas que afetam os Juízes de 1º Grau
+
+&nbsp;
+&nbsp;
+
+5 - Mensuração das preferências de todos os juízes em uma escala comparável
+
+
+
