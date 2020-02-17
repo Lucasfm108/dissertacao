@@ -731,8 +731,6 @@ Ausência de incentivos relevantes
 </section><section id="explicando-o-comportamento-dos-juizes-do-tjsp" class="slide level2">
 <h2>Explicando o comportamento dos juízes do TJSP</h2>
 <p>   </p>
-<p><strong>Teoria Atitudinal</strong> - Os juízes decidem de acordo com suas preferências políticas.    </p>
-<p><strong>Teoria Estratégica</strong> - Os juízes decidem de acordo com suas preferências políticas:</p>
 <ul>
 <li>Julgamento Individual (Contexto colegiado)</li>
 <li>Decisão não passível de revisão pelos demais Poderes (Contexto da separação entre os poderes)</li>
@@ -747,7 +745,7 @@ Ausência de incentivos relevantes
 <span class="math display">\[\underbrace{d_{ic}}_\text{Decisão do juiz i no caso c} = \alpha + \underbrace{\beta_1I_i}_\text{Ideologia do juiz i} + \underbrace{\epsilon}_\text{Erro normalmente distribuído}\]</span>
 </center>
 <p>   </p>
-<p><strong>Hipótese</strong>: Juízes punitivistas possuem uma maior probabilidade de proferirem uma sentença condenatória do que juízes garantistas.</p>
+<p><strong>Hipótese</strong>: juízes punitivistas possuem uma maior probabilidade de proferirem uma sentença condenatória do que juízes garantistas.</p>
 </section></section>
 <section><section id="mensurando-as-preferencias-politicas" class="title-slide slide level1"><h1>Mensurando as preferências políticas</h1></section><section id="duas-estrategias" class="slide level2">
 <h2>Duas estratégias</h2>
@@ -773,46 +771,26 @@ Ausência de incentivos relevantes
 <center>
 <img data-src="comportamento.PNG" />
 </center>
-</section><section id="estrategia-adotada" class="slide level2">
-<h2>Estratégia adotada</h2>
+</section><section id="estrategia-adotada---proporcao-de-sentencas-condenatorias" class="slide level2">
+<h2>Estratégia adotada - proporção de sentenças condenatórias</h2>
 <p>   </p>
-<p>Se a decisão judicial é afetada pela preferência polítia do juiz, isso significa que ele apenas decidiria pela absolvição se, e somente se, a média entre a absolvição e a condenação fosse maior do que seu ponto ideal. Inversamente, um juiz condenaria se, e somente se, a média entre a absolvição e a condenação fosse menor do que seu ponto ideal.</p>
+<p>Se a preferência política afeta a decisão judicial, como predizem as teorias, a proporção de sentenças condenatórias de um juiz em um determinado crime é um bom indicador de seu ponto ideal na dimensão <em>garantismo-punitivismo</em>.</p>
 <p>   </p>
-<p>Para facilitar, a média entre a absolvição e a condenação será denominada “ponto de corte” do caso sob julgamento. Assim, um ponto ideal superior e outro inferior ao ponto de corte implica uma decisão condenatória e uma decisão absolutória, respectivamente.</p>
-</section><section id="estrategia-adotada-1" class="slide level2">
-<h2>Estratégia adotada</h2>
+<p>Considerando que os processos são distribuídos aleatoriamente, se dois juízes A e B possuem as proporções de condenação no crime de furto de, respectivamente, 40% e 80%, podemos dizer que o primeiro é mais garantista do que o segundo.</p>
+<p style="border:3px; border-style:dashed; border-color:#FF4136; padding: 1em;font-size:30px;">
+Naturalmente, quanto maior a amostra, maior a precisão da estimativa do ponto ideal, haja vista que menor será a probabilidade de que particularidades do caso concreto afetem a proporção.
+</p>
+</section><section id="estrategia-adotada---proporcao-distancia-euclidiana" class="slide level2">
+<h2>Estratégia adotada - proporção + distância euclidiana</h2>
 <p>   </p>
-<center>
-<img data-src="estrategia1.PNG" />
-</center>
-</section><section id="estrategia-adotada-2" class="slide level2">
-<h2>Estratégia adotada</h2>
+<p>Pela proporção do crime de furto, sabemos que o juiz A é mais garantista do que o B. Se descobrimos que a proporção de sentenças condenatórias em outro crime (tráfico) é de 90% (A) e 10% (B), podemos afirmar com segurança que o juiz A é ainda mais garantista em relação ao B do que havíamos previsto ao analisar apenas o crime de furto.</p>
 <p>   </p>
-<center>
-<img data-src="estrategia2.PNG" />
-</center>
-</section><section id="estrategia-adotada-3" class="slide level2">
-<h2>Estratégia adotada</h2>
-<p>   </p>
-<center>
-<img data-src="estrategia3.PNG" />
-</center>
-</section><section id="estrategia-adotada-4" class="slide level2">
-<h2>Estratégia adotada</h2>
-<p>   </p>
-<p><strong>Solução</strong></p>
-<p>Calcular a proporção de sentenças condenatórias dos juízes em cada crime. Como os processos são distribuídos aleatoriamente, com um tamanho de amostra razoável, as diferenças de caso para caso se tornam irrelevantes.</p>
-<p>   </p>
-<p>Dessa maneira, a proporção de decisões de condenação serve como uma boa estimativa do ponto ideal do juiz na dimensão política garantismo-punitivismo: quanto maior a proporção de condenação, mais punitivista será o juiz; quanto menor a proporção de condenação, mais garantista ele será.</p>
-</section><section id="estrategia-adotada-5" class="slide level2">
-<h2>Estratégia adotada</h2>
-<p>   </p>
-<p>Juízes não julgam apenas um tipo de crime, e sim vários. Assim, podemos obter a proporção de decisões condenatórias de um juiz em uma série de crimes. Saber as proporções de decisões condenatórias dos juízes em vários crimes nos permite estimar os seus pontos ideais com ainda maior precisão.</p>
+<p>Saber as proporções de decisões condenatórias dos juízes em vários crimes nos permite estimar os seus pontos ideais com ainda maior precisão.</p>
 <p>   </p>
 <p>Podemos calcular os pontos ideais dos juízes a partir das proporções de condenações em uma série de crimes usando a fórmula da distância euclidiana:</p>
 <p>   </p>
 <p><span class="math display">\[d(a,b)=\sqrt{\sum_{i=1}^{n}(a_i - b_i)^2} \]</span></p>
-</section><section id="estrategia-adotada-6" class="slide level2">
+</section><section id="estrategia-adotada" class="slide level2">
 <h2>Estratégia adotada</h2>
 <p>   </p>
 <p>O cálculo das as distâncias euclidianas entre os juízes retorna uma matriz de distância.</p>
@@ -841,8 +819,41 @@ Ausência de incentivos relevantes
 ## 4 58.30952 43.86342 28.28427  0.00000</code></pre>
 <p>   </p>
 <p>Neste exemplo, o Juiz 1 seria o âncora. Logo, os pontos ideais dos juízes 1, 2 3 e 4 seriam, respectivamente: 0, 15, 31 e 58.</p>
+</section><section id="estrategia-adotada---circularidade" class="slide level2">
+<h2>Estratégia adotada - circularidade</h2>
+<p>   </p>
+<p>Para evitar o problema da circularidade, os crimes a partir dos quais foi medida a preferência política não compõem a base de dados que será utilizada para testar o efeito da ideologia sobre as decisões.</p>
+<p>   </p>
+<p>Juridicamente, é perfeitamente possível que um juiz tenha uma alta proporção de condenação no crime de furto e uma pequena proporção no crime de tráfico. As questões jurídicas e probatórias que envolvem esses crimes são totalmente distintas.</p>
+<p>   </p>
+<p>Em outras palavras, legalmente falando, saber a proporção de condenações de um Juiz em um determinado crime não deveria nos permitir estimar a sua proporção de condenação em outros crimes.</p>
 </section></section>
-<section><section id="testando-a-hipotese" class="title-slide slide level1"><h1>Testando a hipótese</h1></section><section id="resultados" class="slide level2">
+<section><section id="testando-a-hipotese" class="title-slide slide level1"><h1>Testando a hipótese</h1></section><section id="construindo-a-base-de-dados---web-scraping" class="slide level2">
+<h2>Construindo a base de dados - <em>web scraping</em></h2>
+<p>   </p>
+<video width="320" height="240" controls>
+<source src="webscraping.mp4" type="video/mp4">
+</video>
+</section><section id="construindo-a-base-de-dados---codificacao-das-decisoes" class="slide level2">
+<h2>Construindo a base de dados - codificação das decisões</h2>
+<p>   </p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">condena &lt;-<span class="st">  </span><span class="kw">or</span>(<span class="st">&quot;julg&quot;</span> <span class="op">%R%</span><span class="st"> </span><span class="kw">or</span>(<span class="st">&quot;o&quot;</span>, <span class="st">&quot;a-se&quot;</span>) <span class="op">%R%</span><span class="st"> </span><span class="kw">one_or_more</span>(SPC) <span class="op">%R%</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="st">                    </span><span class="kw">optional</span>(<span class="kw">or</span>(<span class="st">&quot;a denúncia&quot;, &quot;</span>a presente ação<span class="st">&quot;) %R% one_or_more(SPC))%R%</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="st">                    &quot;</span>procedente<span class="st">&quot;, &quot;</span>julg<span class="st">&quot; %R% or(&quot;</span>o<span class="st">&quot;, &quot;</span>a<span class="op">-</span>se<span class="st">&quot;) %R% one_or_more(SPC) %R%</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="st">                    or(&quot;</span>parcialmente<span class="st">&quot;, &quot;</span>em parte<span class="st">&quot;) %R% one_or_more(SPC) %R%</span></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="st">                    &quot;</span>procedente<span class="st">&quot;, &quot;</span>fix<span class="st">&quot; %R% one_or_more(WRD) %R%</span></a>
+<a class="sourceLine" id="cb4-6" title="6"><span class="st">                    one_or_more(SPC) %R% &quot;</span>a<span class="st">&quot; %R% &quot;</span>condena<span class="st">&quot; %R% or(&quot;</span>ção<span class="st">&quot;, &quot;</span>çao<span class="st">&quot;, &quot;</span>cão<span class="st">&quot;, &quot;</span>cao<span class="st">&quot;),</span></a>
+<a class="sourceLine" id="cb4-7" title="7"><span class="st">                  &quot;</span>crime<span class="st">&quot; %R% optional(&quot;</span>s<span class="st">&quot;) %R% one_or_more(SPC) %R%</span></a>
+<a class="sourceLine" id="cb4-8" title="8"><span class="st">                    &quot;</span>rest<span class="st">&quot; %R% or(&quot;</span>ou<span class="st">&quot;, &quot;</span>aram<span class="st">&quot;) %R% one_or_more(SPC) %R% &quot;</span>configurado<span class="st">&quot;,</span></a>
+<a class="sourceLine" id="cb4-9" title="9"><span class="st">                  &quot;</span>fix<span class="st">&quot; %R% or(&quot;</span>a<span class="op">-</span>se<span class="st">&quot;,&quot;</span>am<span class="op">-</span>se<span class="st">&quot;, &quot;</span>o<span class="st">&quot;, &quot;</span>ando<span class="st">&quot;, &quot;</span>o<span class="op">-</span>lhe<span class="st">&quot;, &quot;</span>ar<span class="st">&quot;) %R% one_or_more(SPC) </span></a>
+<a class="sourceLine" id="cb4-10" title="10"><span class="st">                  %R% optional(or(&quot;</span>as<span class="st">&quot;, &quot;</span>a<span class="st">&quot;)) %R%</span></a>
+<a class="sourceLine" id="cb4-11" title="11"><span class="st">                    one_or_more(SPC) %R% &quot;</span>pena<span class="st">&quot;,</span></a>
+<a class="sourceLine" id="cb4-12" title="12"><span class="st">                  &quot;</span>condeno<span class="st">&quot; %R% one_or_more(SPC),</span></a>
+<a class="sourceLine" id="cb4-13" title="13"><span class="st">                  &quot;</span>arbitro<span class="st">&quot; %R% one_or_more(SPC) %R% or(&quot;</span>a<span class="st">&quot;, &quot;</span>as<span class="st">&quot;) %R%</span></a>
+<a class="sourceLine" id="cb4-14" title="14"><span class="st">                    one_or_more(SPC) %R% &quot;</span>pena<span class="st">&quot;, or(&quot;</span>passo<span class="st">&quot;, &quot;</span>passa<span class="op">-</span>se<span class="st">&quot;) %R% </span></a>
+<a class="sourceLine" id="cb4-15" title="15"><span class="st">                    or(&quot;</span>, pois, <span class="st">&quot;, one_or_more(SPC))  %R%</span></a>
+<a class="sourceLine" id="cb4-16" title="16"><span class="st">                    or(&quot;</span>à<span class="st">&quot;, &quot;</span>a<span class="st">&quot;) %R% one_or_more(SPC) %R% or(&quot;</span>dosimetria<span class="st">&quot;, &quot;</span>dosa<span class="st">&quot;))</span></a></code></pre></div>
+</section><section id="resultados" class="slide level2">
 <h2>Resultados</h2>
 <p>   </p>
 <p>O método proposto no capítulo anterior se baseia em dois parâmetros: 1) quantos (e quais) crimes serão utilizados para medir as preferências; 2) número mínimo de decisões proferidas por cada juiz em cada crime. Quanto maior forem ambos os parâmetros, mais preciso será o método</p>

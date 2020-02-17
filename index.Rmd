@@ -152,17 +152,12 @@ kable(a) %>%
 &nbsp;
 &nbsp;
 
-**Teoria Atitudinal** - Os juízes decidem de acordo com suas preferências políticas. 
-&nbsp;
-&nbsp;
-
-**Teoria Estratégica** - Os juízes decidem de acordo com suas preferências políticas:
-
 * Julgamento Individual (Contexto colegiado)
 * Decisão não passível de revisão pelos demais Poderes (Contexto da separação entre os poderes)
 * Distribuição aleatória dos recursos (Contexto hierárquico)
 * Falta de homogeneidade nos Tribunais (Contexto Hierárquico)
 * Alta taxa de reversão não impede promoção na carreira (Contexto hierárquico) 
+
 
 ## Modelo e hipótese
 
@@ -174,7 +169,7 @@ kable(a) %>%
 &nbsp;
 &nbsp;
 
-**Hipótese**: Juízes punitivistas possuem uma maior probabilidade de proferirem uma sentença condenatória do que juízes garantistas. 
+**Hipótese**: juízes punitivistas possuem uma maior probabilidade de proferirem uma sentença condenatória do que juízes garantistas. 
 
 
 # Mensurando as preferências políticas
@@ -211,62 +206,32 @@ A preferência política é uma variável latente, isto é, não é passível de
 
 <center> ![](comportamento.PNG) </center>
 
-## Estratégia adotada
+## Estratégia adotada - proporção de sentenças condenatórias
 
 &nbsp;
 &nbsp;
 
-
-Se a decisão judicial é afetada pela preferência polítia do juiz, isso significa que ele apenas decidiria pela absolvição se, e somente se, a média entre a absolvição e a condenação fosse maior do que seu ponto ideal. Inversamente, um juiz condenaria se, e somente se, a média entre a absolvição e a condenação fosse menor do que seu ponto ideal. 
-
-&nbsp;
-&nbsp;
-
-Para facilitar, a média entre a absolvição e a condenação será denominada “ponto de corte” do caso sob julgamento. Assim, um ponto ideal superior e outro inferior ao ponto de corte implica uma decisão condenatória e uma decisão absolutória, respectivamente.
-
-
-## Estratégia adotada
+Se a preferência política afeta a decisão judicial, como predizem as teorias, a proporção de sentenças condenatórias de um juiz em um determinado crime é um bom indicador de seu ponto ideal na dimensão *garantismo-punitivismo*.
 
 &nbsp;
 &nbsp;
 
-<center> ![](estrategia1.PNG) </center>
+Considerando que os processos são distribuídos aleatoriamente, se dois juízes A e B possuem as proporções de condenação no crime de furto de, respectivamente, 40% e 80%, podemos dizer que o primeiro é mais garantista do que o segundo. 
 
-## Estratégia adotada
+<p style="border:3px; border-style:dashed; border-color:#FF4136; padding: 1em;font-size:30px;">
+Naturalmente, quanto maior a amostra, maior a precisão da estimativa do ponto ideal, haja vista que menor será a probabilidade de que particularidades do caso concreto afetem a proporção. </p>
 
-&nbsp;
-&nbsp;
-
-<center> ![](estrategia2.PNG) </center>
-
-## Estratégia adotada
+## Estratégia adotada - proporção + distância euclidiana
 
 &nbsp;
 &nbsp;
 
-<center> ![](estrategia3.PNG) </center>
-
-
-## Estratégia adotada
+Pela proporção do crime de furto, sabemos que o juiz A é mais garantista do que o B. Se descobrimos que a proporção de sentenças condenatórias em outro crime (tráfico) é de 90% (A) e 10% (B), podemos afirmar com segurança que o juiz A é ainda mais garantista em relação ao B do que havíamos previsto ao analisar apenas o crime de furto.
 
 &nbsp;
 &nbsp;
 
-**Solução**
-
-Calcular a proporção de sentenças condenatórias dos juízes em cada crime. Como os processos são distribuídos aleatoriamente, com um tamanho de amostra razoável, as diferenças de caso para caso se tornam irrelevantes. 
-
-&nbsp;
-&nbsp;
-
-Dessa maneira, a proporção de decisões de condenação serve como uma boa estimativa do ponto ideal do juiz na dimensão política garantismo-punitivismo: quanto maior a proporção de condenação, mais punitivista será o juiz; quanto menor a proporção de condenação, mais garantista ele será.
-
-## Estratégia adotada
-
-&nbsp;
-&nbsp;
-
-Juízes não julgam apenas um tipo de crime, e sim vários. Assim, podemos obter a proporção de decisões condenatórias de um juiz em uma série de crimes. Saber as proporções de decisões condenatórias dos juízes em vários crimes nos permite estimar os seus pontos ideais com ainda maior precisão.
+Saber as proporções de decisões condenatórias dos juízes em vários crimes nos permite estimar os seus pontos ideais com ainda maior precisão.
 
 &nbsp;
 &nbsp;
@@ -327,7 +292,63 @@ as.matrix(a)
 Neste exemplo, o Juiz 1 seria o âncora. Logo, os pontos ideais dos juízes 1, 2 3 e 4 seriam, respectivamente: 0, 15, 31 e 58.
 
 
+## Estratégia adotada - circularidade
+
+&nbsp;
+&nbsp;
+
+Para evitar o problema da circularidade, os crimes a partir dos quais foi medida a preferência política não compõem a base de dados que será utilizada para testar o efeito da ideologia sobre as decisões.
+
+&nbsp;
+&nbsp;
+
+Juridicamente, é perfeitamente possível que um juiz tenha uma alta proporção de condenação no crime de furto e uma pequena proporção no crime de tráfico. As questões jurídicas e probatórias que envolvem esses crimes são totalmente distintas.
+
+&nbsp;
+&nbsp;
+
+Em outras palavras, legalmente falando, saber a proporção de condenações de um Juiz em um determinado crime não deveria nos permitir estimar a sua proporção de condenação em outros crimes.
+
 # Testando a hipótese
+
+## Construindo a base de dados - *web scraping*
+
+&nbsp;
+&nbsp;
+
+<video width="320" height="240" controls>
+  <source src="webscraping.mp4" type="video/mp4">
+</video>
+
+## Construindo a base de dados - codificação das decisões
+
+&nbsp;
+&nbsp;
+
+```{r, include=FALSE}
+library(rebus)
+```
+
+```{r}
+condena <-  or("julg" %R% or("o", "a-se") %R% one_or_more(SPC) %R%
+                    optional(or("a denúncia", "a presente ação") %R% one_or_more(SPC))%R%
+                    "procedente", "julg" %R% or("o", "a-se") %R% one_or_more(SPC) %R%
+                    or("parcialmente", "em parte") %R% one_or_more(SPC) %R%
+                    "procedente", "fix" %R% one_or_more(WRD) %R%
+                    one_or_more(SPC) %R% "a" %R% "condena" %R% or("ção", "çao", "cão", "cao"),
+                  "crime" %R% optional("s") %R% one_or_more(SPC) %R%
+                    "rest" %R% or("ou", "aram") %R% one_or_more(SPC) %R% "configurado",
+                  "fix" %R% or("a-se","am-se", "o", "ando", "o-lhe", "ar") %R% one_or_more(SPC) 
+                  %R% optional(or("as", "a")) %R%
+                    one_or_more(SPC) %R% "pena",
+                  "condeno" %R% one_or_more(SPC),
+                  "arbitro" %R% one_or_more(SPC) %R% or("a", "as") %R%
+                    one_or_more(SPC) %R% "pena", or("passo", "passa-se") %R% 
+                    or(", pois, ", one_or_more(SPC))  %R%
+                    or("à", "a") %R% one_or_more(SPC) %R% or("dosimetria", "dosa"))
+```
+
+
 
 ## Resultados
 
