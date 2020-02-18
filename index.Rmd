@@ -390,6 +390,7 @@ library(data.table)
 library(tidyverse)
 library(gdata)
 library(reshape2)
+library(plotly)
 
 base <- rio::import("base_codificada.rda")
 sp_idhm <- rio::import("sp_idhm.xlsx") #Parte da base do Atlas de Desenvolvimento Humano
@@ -589,6 +590,18 @@ Exemplificando, os Juízes que se situaram nos extremos ideológicos do último 
 &nbsp;
 
 **Comportamento Judicial**: Postulado da hierarquia?
+
+```{r, echo=FALSE, fig.align='center'}
+base <- data.frame("Instância" = c("1ª Instância", "2º Instância","Corte Constitucional","1ª Instância", "2º Instância","Corte Constitucional"), "Tipo_decisão" = c("Legalista","Legalista","Legalista", "Ideológica","Ideológica","Ideológica"), "Proporção" = c(90, 60, 20,10,40,80))
+
+plot <- ggplot(base, aes(x=Instância, y=Proporção, fill=Tipo_decisão))+
+  geom_col()+
+  theme_classic()
+
+ggplotly(plot)
+
+```
+
 
 # Considerações finais
 
